@@ -1,2 +1,2 @@
 # Vozarron
-Proyecto para la electiva de Dispositivos Móviles.
+Proyecto final para la electiva de Dispositivos Móviles.
