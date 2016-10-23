@@ -2,5 +2,9 @@
     <string name="app_name">Vozarron</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hola Mundo</string>
+    <string name="lista_entrenadores">ENTRENADORES</string>
+    <string name="boton_lista_participantes">Lista de Participantes</string>
+    <string name="boton_ir_votaciones">Votar en la Ronda</string>
+    <string name="historial">Historial</string>
 </resources>
