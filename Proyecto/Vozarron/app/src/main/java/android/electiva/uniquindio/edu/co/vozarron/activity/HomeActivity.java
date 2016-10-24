@@ -6,6 +6,7 @@ import android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeEntrenadores
 import android.electiva.uniquindio.edu.co.vozarron.vo.Entrenador;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -39,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
 
 
     /**
-     * Override del metodo de la interface para ejecutar ejecutar el evento que permite mostrar los detalles de un entrenador.
+     * Override del metodo de la interface para ejecutar el evento que permite mostrar los detalles de un entrenador.
      * Los detalles del entrenador seran mostrados en una nueva actividad.
      * @param pos posición en el array del entrenador seleccionado.
      */
@@ -57,6 +58,15 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
     @Override
     public void setEntrenadores(ArrayList<Entrenador> listaEntrenadores) {
         this.listaEntrenadores = listaEntrenadores;
+    }
+
+
+    /**
+     * Metodo para iniciar la actividad de Participantes.
+     */
+    public void irAListaParticipantes(View view){
+        Intent intent = new Intent(this,ParticipantesActivity.class);
+        startActivity(intent);
     }
 
     /**

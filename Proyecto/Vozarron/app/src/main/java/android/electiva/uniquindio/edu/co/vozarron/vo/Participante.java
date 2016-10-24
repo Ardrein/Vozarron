@@ -41,6 +41,11 @@ public class Participante implements Parcelable{
     private String foto;
 
     /**
+     * Atributo que representa el entrenador de este participante.
+     */
+    private Entrenador entrenador;
+
+    /**
      * Atributo que representa la lista de rondas en las que ha participado el participante.
      */
     private ArrayList<ParticipantesRonda> participantesRondas;
@@ -66,6 +71,7 @@ public class Participante implements Parcelable{
      * @param in parcel del que se va a leer.
      */
     protected Participante(Parcel in) {
+        entrenador = (Entrenador) in.readParcelable(Entrenador.class.getClassLoader());
         nombre = in.readString();
         edad = in.readInt();
         estado = in.readByte() != 0;
@@ -187,6 +193,22 @@ public class Participante implements Parcelable{
     }
 
     /**
+     * Getter de entrenador.
+     * @return entrenador del participante.
+     */
+    public Entrenador getEntrenador() {
+        return entrenador;
+    }
+
+    /**
+     * Setter de entrenador.
+     * @param entrenador entrenador del participante.
+     */
+    public void setEntrenador(Entrenador entrenador) {
+        this.entrenador = entrenador;
+    }
+
+    /**
      * Se utiliza cuando existen parcelables hijos.
      * @return retorna cero al no tener hijos.
      */
@@ -203,6 +225,7 @@ public class Participante implements Parcelable{
      */
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeParcelable(entrenador,i);
         parcel.writeString(nombre);
         parcel.writeInt(edad);
         parcel.writeByte((byte) (estado ? 1 : 0));

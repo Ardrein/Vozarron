@@ -10,4 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="android.electiva.uniquindio.edu.co.vozarron.activity.ParticipantesActivity">
 
+
+    <fragment
+        android:id="@+id/fragmento_lista_participantes"
+
+        class="android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeParticipantesFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </RelativeLayout>

@@ -122,7 +122,7 @@ public class AdaptadorDeEntrenador extends RecyclerView.Adapter<AdaptadorDeEntre
 
         /**
          * Metodo para asociar los atributos de una instancia de Entrenador con los controles de una instancia de esta clase.
-         * @param entrenador instancia de la clase Personaje de la cual se obtienen los datos.
+         * @param entrenador instancia de la clase Entrenador de la cual se obtienen los datos.
          */
         public void bindEntrenador(Entrenador entrenador){
             txtNombreEntrenador.setText(entrenador.getNombre());
