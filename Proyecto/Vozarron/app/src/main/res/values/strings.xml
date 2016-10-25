@@ -2,9 +2,16 @@
     <string name="app_name">Vozarron</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hola Mundo</string>
+    <string name="hello_blank_fragment">Hello Blank Fragment</string>
     <string name="lista_entrenadores">ENTRENADORES</string>
     <string name="boton_lista_participantes">Lista de Participantes</string>
     <string name="boton_ir_votaciones">Votar en la Ronda</string>
     <string name="historial">Historial</string>
+    <string name="ver_video">Ver Video</string>
+    <string name="ronda_titulo">Ronda</string>
+    <string name="video_titulo">Video</string>
+    <string name="edad">Edad: </string>
+    <string name="nombre_entrenador">Entrenador: </string>
+    <string name="nombre_text">Nombre</string>
+    <string name="agregar_participante">Agregar Participante</string>
 </resources>

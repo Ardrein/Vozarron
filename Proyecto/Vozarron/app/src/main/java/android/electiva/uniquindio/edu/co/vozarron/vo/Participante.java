@@ -13,6 +13,10 @@ import java.util.ArrayList;
 public class Participante implements Parcelable{
 
     /**
+     * Atributo para representar el id del participante.
+     */
+    private String id;
+    /**
      * Atributo para representar el nombre completo del participante.
      */
     private String nombre;
@@ -43,7 +47,7 @@ public class Participante implements Parcelable{
     /**
      * Atributo que representa el entrenador de este participante.
      */
-    private Entrenador entrenador;
+    private String idEntrenador;
 
     /**
      * Atributo que representa la lista de rondas en las que ha participado el participante.
@@ -71,12 +75,33 @@ public class Participante implements Parcelable{
      * @param in parcel del que se va a leer.
      */
     protected Participante(Parcel in) {
-        entrenador = (Entrenador) in.readParcelable(Entrenador.class.getClassLoader());
+
+
+        id = in.readString();
         nombre = in.readString();
         edad = in.readInt();
         estado = in.readByte() != 0;
         relacionUniversidad = in.readString();
         foto = in.readString();
+        idEntrenador = in.readString();
+        participantesRondas = in.createTypedArrayList(ParticipantesRonda.CREATOR);
+    }
+
+    /**
+     * Permite escribir un parcel. El orden en que se escribe es importante.
+     * @param parcel Parcel donde se va a escribir.
+     * @param i indica como deberia ser escrito el parcel.
+     */
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(nombre);
+        parcel.writeInt(edad);
+        parcel.writeByte((byte) (estado ? 1 : 0));
+        parcel.writeString(relacionUniversidad);
+        parcel.writeString(foto);
+        parcel.writeString(idEntrenador);
+        parcel.writeTypedList(participantesRondas);
     }
 
 
@@ -95,6 +120,30 @@ public class Participante implements Parcelable{
             return new Participante[size];
         }
     };
+
+    /**
+     * Metodo para obtener el nombre del estado del participante dependiendo si ha sido eliminado o no basado en el boolean estado.
+     * @return String con el nombre del estado del participante.
+     */
+    public String getEstado(){
+        return (this.estado)?"ACTIVO":"ELIMINADO";
+    }
+
+    /**
+     * Getter del id.
+     * @return String con el id del participante.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Setter del id.
+     * @param id String con el id del participante.
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Getter de nombre;
@@ -193,19 +242,19 @@ public class Participante implements Parcelable{
     }
 
     /**
-     * Getter de entrenador.
-     * @return entrenador del participante.
+     * Getter de idEntrenador.
+     * @return idEntrenador del participante.
      */
-    public Entrenador getEntrenador() {
-        return entrenador;
+    public String getIdEntrenador() {
+        return idEntrenador;
     }
 
     /**
-     * Setter de entrenador.
-     * @param entrenador entrenador del participante.
+     * Setter de idEntrenador.
+     * @param idEntrenador idEntrenador del participante.
      */
-    public void setEntrenador(Entrenador entrenador) {
-        this.entrenador = entrenador;
+    public void setIdEntrenador(String idEntrenador) {
+        this.idEntrenador = idEntrenador;
     }
 
     /**
@@ -218,18 +267,5 @@ public class Participante implements Parcelable{
     }
 
 
-    /**
-     * Permite escribir un parcel. El orden en que se escribe es importante.
-     * @param parcel Parcel donde se va a escribir.
-     * @param i indica como deberia ser escrito el parcel.
-     */
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(entrenador,i);
-        parcel.writeString(nombre);
-        parcel.writeInt(edad);
-        parcel.writeByte((byte) (estado ? 1 : 0));
-        parcel.writeString(relacionUniversidad);
-        parcel.writeString(foto);
-    }
+
 }

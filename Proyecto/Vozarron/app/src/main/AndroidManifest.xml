@@ -20,5 +20,6 @@
         <activity android:name=".activity.ParticipantesActivity" />
         <activity android:name=".activity.VotacionesActivity"></activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

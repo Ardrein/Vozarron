@@ -71,7 +71,14 @@ public class DetalleDeEntrenadorFragment extends Fragment {
         txtHistorial.setText(entrenador.getHistoria());
 
         imgFoto = (ImageView) getView().findViewById(R.id.detalle_entrenador_foto);
-        imgFoto.setImageResource(R.drawable.cat); //para hacer, preguntar en clase
+        int id = getResources().getIdentifier(entrenador.getFoto(),"drawable",getContext().getPackageName());
+
+        //si es 0, no existe un recurso con ese nombre y se utiliza una imagen por defecto
+        if(id>0){
+            imgFoto.setImageResource(id);
+        }else{
+            imgFoto.setImageResource(R.drawable.user);
+        }
 
     }
 

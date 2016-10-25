@@ -4,6 +4,7 @@ package android.electiva.uniquindio.edu.co.vozarron.fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.electiva.uniquindio.edu.co.vozarron.R;
+import android.electiva.uniquindio.edu.co.vozarron.activity.ParticipantesActivity;
 import android.electiva.uniquindio.edu.co.vozarron.util.AdaptadorDeParticipante;
 import android.electiva.uniquindio.edu.co.vozarron.vo.Participante;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -73,10 +77,10 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
         void onParticipanteSeleccionado(int pos);
 
         /**
-         * Setter de la lista de participantes.
-         * @param participantes lista de participantes.
+         * Getter para la lista de participantes.
+         * @return ArrayList de Participante.
          */
-        void setListaParticipantes(ArrayList<Participante> participantes);
+        ArrayList<Participante> getListaParticipantes();
     }
 
 
@@ -88,12 +92,8 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        participantes = new ArrayList<>();
+        setHasOptionsMenu(true);
 
-        participantes.add(new Participante("Alejandro",24,"Estudiante","Cat"));
-        participantes.add(new Participante("David",24,"Estudiante","Cat"));
-
-        listener.setListaParticipantes(participantes);
 
     }
 
@@ -124,7 +124,9 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        listadoDeParticipantes = (RecyclerView) getView().findViewById(R.id.listaParticipantes);
+        setParticipantes(listener.getListaParticipantes());
+
+        listadoDeParticipantes = (RecyclerView) getView().findViewById(R.id.lista_participantes);
         adaptador =  new AdaptadorDeParticipante(participantes,this);
         listadoDeParticipantes.setAdapter(adaptador);
         listadoDeParticipantes.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
@@ -155,5 +157,21 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
         this.participantes = participantes;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.menu_agregar){
+            ((ParticipantesActivity) getActivity()).mostrarDialogoAgregarParticipante(ListaDeParticipantesFragment.class
+            .getName());
+        }
+
+            return super.onOptionsItemSelected(item);
+    }
 }

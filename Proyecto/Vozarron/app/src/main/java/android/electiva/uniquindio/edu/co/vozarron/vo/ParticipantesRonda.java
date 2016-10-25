@@ -21,24 +21,24 @@ public class ParticipantesRonda implements Parcelable{
     /**
      * Atributo que representa el participante de la ronda.
      */
-    private Participante participante;
+    private String idParticipante;
 
     /**
      * Atributo que representa la ronda en donde participa un participante.
      */
-    private Ronda ronda;
+    private String idRonda;
 
     /**
      * Metodo constructor para añadir un participante a una ronda.
      * @param urlVideo Url del video con el que el participante participa en la ronda.
-     * @param participante participante de la ronda.
-     * @param ronda ronda en donde participa un participante.
+     * @param idParticipante idParticipante de la ronda.
+     * @param idRonda idRonda en donde participa un participante.
      */
-    public ParticipantesRonda(String urlVideo, Participante participante, Ronda ronda){
+    public ParticipantesRonda(String urlVideo, String idParticipante, String idRonda){
         this.urlVideo = urlVideo;
         this.numVotos = 0;
-        this.participante = participante;
-        this.ronda = ronda;
+        this.idParticipante = idParticipante;
+        this.idRonda = idRonda;
     }
 
     /**
@@ -48,8 +48,21 @@ public class ParticipantesRonda implements Parcelable{
     protected ParticipantesRonda(Parcel in) {
         urlVideo = in.readString();
         numVotos = in.readInt();
-        participante = in.readParcelable(Participante.class.getClassLoader());
-        ronda = in.readParcelable(Ronda.class.getClassLoader());
+        idParticipante = in.readString();
+        idRonda = in.readString();
+    }
+
+    /**
+     * Permite escribir un parcel. El orden en que se escribe es importante.
+     * @param parcel Parcel donde se va a escribir.
+     * @param i indica como deberia ser escrito el parcel.
+     */
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(urlVideo);
+        parcel.writeInt(numVotos);
+        parcel.writeString(idParticipante);
+        parcel.writeString(idRonda);
     }
 
     /**
@@ -101,35 +114,35 @@ public class ParticipantesRonda implements Parcelable{
     }
 
     /**
-     * Getter de Participante.
-     * @return Participante de una ronda.
+     * Getter de idParticipante.
+     * @return idParticipante de una ronda.
      */
-    public Participante getParticipante() {
-        return participante;
+    public String getIdParticipante() {
+        return idParticipante;
     }
 
     /**
-     * Setter de Participante.
-     * @param participante Participante de una ronda.
+     * Setter de idParticipante.
+     * @param idParticipante Participante de una ronda.
      */
-    public void setParticipante(Participante participante) {
-        this.participante = participante;
+    public void setIdParticipante(String idParticipante) {
+        this.idParticipante = idParticipante;
     }
 
     /**
-     * Getter de Ronda.
-     * @return ronda de la relación.
+     * Getter de idRonda.
+     * @return idRonda de la relación.
      */
-    public Ronda getRonda() {
-        return ronda;
+    public String getIdRonda() {
+        return idRonda;
     }
 
     /**
-     * Setter de Ronda.
-     * @param ronda Ronda de la relación.
+     * Setter de idRonda.
+     * @param idRonda idRonda de la relación.
      */
-    public void setRonda(Ronda ronda) {
-        this.ronda = ronda;
+    public void setIdRonda(String idRonda) {
+        this.idRonda = idRonda;
     }
 
 
@@ -142,16 +155,5 @@ public class ParticipantesRonda implements Parcelable{
         return 0;
     }
 
-    /**
-     * Permite escribir un parcel. El orden en que se escribe es importante.
-     * @param parcel Parcel donde se va a escribir.
-     * @param i indica como deberia ser escrito el parcel.
-     */
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(urlVideo);
-        parcel.writeInt(numVotos);
-        parcel.writeParcelable(participante, i);
-        parcel.writeParcelable(ronda, i);
-    }
+
 }

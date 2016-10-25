@@ -13,6 +13,11 @@ import java.util.ArrayList;
 public class Ronda implements Parcelable{
 
     /**
+     * Atributo para representar el id de la ronda.
+     */
+    private String id;
+
+    /**
      * Atributo que representa el número de la ronda, si es la semifinal o la final.
      */
     private String nombre;
@@ -36,7 +41,19 @@ public class Ronda implements Parcelable{
      * @param in parcel del que se va a leer.
      */
     protected Ronda(Parcel in) {
+        id = in.readString();
         nombre = in.readString();
+    }
+
+    /**
+     * Permite escribir un parcel. El orden en que se escribe es importante.
+     * @param parcel Parcel donde se va a escribir.
+     * @param i indica como deberia ser escrito el parcel.
+     */
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(nombre);
+        parcel.writeString(id);
     }
 
     /**
@@ -54,6 +71,22 @@ public class Ronda implements Parcelable{
             return new Ronda[size];
         }
     };
+
+    /**
+     * Getter del id.
+     * @return String con el id de la ronda.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Setter del id.
+     * @param id String con el id de la ronda.
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Getter del nombre de la ronda.
@@ -96,13 +129,5 @@ public class Ronda implements Parcelable{
         return 0;
     }
 
-    /**
-     * Permite escribir un parcel. El orden en que se escribe es importante.
-     * @param parcel Parcel donde se va a escribir.
-     * @param i indica como deberia ser escrito el parcel.
-     */
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(nombre);
-    }
+
 }

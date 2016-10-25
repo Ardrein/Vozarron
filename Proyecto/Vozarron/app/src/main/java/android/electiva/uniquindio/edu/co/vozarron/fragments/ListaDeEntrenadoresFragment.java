@@ -6,6 +6,9 @@ import android.content.Context;
 import android.electiva.uniquindio.edu.co.vozarron.R;
 import android.electiva.uniquindio.edu.co.vozarron.util.AdaptadorDeEntrenador;
 import android.electiva.uniquindio.edu.co.vozarron.vo.Entrenador;
+import android.electiva.uniquindio.edu.co.vozarron.vo.Participante;
+import android.electiva.uniquindio.edu.co.vozarron.vo.ParticipantesRonda;
+import android.electiva.uniquindio.edu.co.vozarron.vo.Ronda;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -43,7 +47,10 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
      */
     private ArrayList<Entrenador> entrenadores;
 
-
+    /**
+     * ArrayList con la lista de rondas.
+     */
+    private ArrayList<Ronda> rondas;
 
 
     /**
@@ -80,6 +87,12 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
          * @param listaEntrenadores lista de entrenadores.
          */
         void setEntrenadores(ArrayList<Entrenador> listaEntrenadores);
+
+        /**
+         * Setter de la lista de rondas.
+         * @param rondas lista de rondas.
+         */
+        void setRondas(ArrayList<Ronda> rondas);
     }
 
 
@@ -92,12 +105,62 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
         super.onCreate(savedInstanceState);
 
         entrenadores = new ArrayList<>();
+        rondas = new ArrayList<>();
 
-        entrenadores.add(new Entrenador("Einer","profesor de la clase de dispositivos moviles","Masculino","gato"));
-        entrenadores.add(new Entrenador("David","estudiante de la clase de dispositivos moviles","Masculino","gato"));
-        entrenadores.add(new Entrenador("Alejandro","estudiante de la clase de dispositivos moviles","Masculino","gato"));
+
+        Entrenador entrenador1 = new Entrenador("Einer","profesor de la clase de dispositivos moviles","Masculino","cat");
+        entrenador1.setId("1");
+        entrenador1.setListaParticipantes(new ArrayList<Participante>());
+
+        Entrenador entrenador2 = new Entrenador("David","estudiante de la clase de dispositivos moviles","Masculino","cato");
+        entrenador2.setId("2");
+        entrenador2.setListaParticipantes(new ArrayList<Participante>());
+
+        Entrenador entrenador3 = new Entrenador("Alejandro","estudiante de la clase de dispositivos moviles","Masculino","cat");
+        entrenador3.setId("3");
+        entrenador3.setListaParticipantes(new ArrayList<Participante>());
+
+        Ronda ronda1 = new Ronda("Ronda 1");
+        ronda1.setId("1");
+
+        Ronda ronda2 = new Ronda("Ronda 2");
+        ronda2.setId("2");
+
+        rondas.add(ronda1);
+        rondas.add(ronda2);
+
+
+        ArrayList<ParticipantesRonda> participantesRonda1 = new ArrayList<>();
+        ArrayList<ParticipantesRonda> participantesRonda2 = new ArrayList<>();
+
+        Participante participante1 =  new Participante("Alejandro",24,"Estudiante","Cat");
+        participante1.setId("1");
+        participante1.setIdEntrenador(entrenador1.getId());
+
+        Participante participante2 =  new Participante("David",24,"Estudiante","Cato");
+        participante2.setId("2");
+        participante2.setIdEntrenador(entrenador2.getId());
+
+        participantesRonda1.add(new ParticipantesRonda("http://www.youtube.com",participante1.getId(),ronda1.getId()));
+        participantesRonda1.add(new ParticipantesRonda("http://www.google.com",participante1.getId(),ronda2.getId()));
+        participante1.setParticipantesRondas(participantesRonda1);
+
+        participantesRonda2.add(new ParticipantesRonda("http://www.youtube.com",participante2.getId(),ronda1.getId()));
+        participantesRonda2.add(new ParticipantesRonda("http://www.google.com",participante2.getId(),ronda2.getId()));
+        participante2.setParticipantesRondas(participantesRonda2);
+
+        entrenador1.getListaParticipantes().add(participante1);
+        entrenador2.getListaParticipantes().add(participante2);
+
+
+
+
+        entrenadores.add(entrenador1);
+        entrenadores.add(entrenador2);
+        entrenadores.add(entrenador3);
 
         listener.setEntrenadores(entrenadores);
+        listener.setRondas(rondas);
 
 
     }
@@ -122,6 +185,7 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
 
     }
 
+
     /**
      * Metodo llamado cuando el metodo onCreate de la actividad finaliza su ejecucion.
      */
@@ -129,7 +193,7 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        listadoDeEntrenadores = (RecyclerView) getView().findViewById(R.id.listaEntrenadores);
+        listadoDeEntrenadores = (RecyclerView) getView().findViewById(R.id.lista_entrenadores);
         adaptador = new AdaptadorDeEntrenador(entrenadores,this);
         listadoDeEntrenadores.setAdapter(adaptador);
         listadoDeEntrenadores.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
@@ -145,6 +209,22 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
 
 
 
+    /**
+     * Metodo para asignarle una imagen a un imageView a partir del nombre de la imagen.
+     * @param imageView imageView que va a contener la imagen.
+     * @param nombreImagen nombre de la imagen a asignar.
+     */
+    @Override
+    public void setImage(ImageView imageView, String nombreImagen) {
+        //obtener id del recurso
+        int id = getResources().getIdentifier(nombreImagen,"drawable",getContext().getPackageName());
+        //si es 0, no existe un recurso con ese nombre y se utiliza una imagen por defecto
+        if(id>0){
+            imageView.setImageResource(id);
+        }else{
+            imageView.setImageResource(R.drawable.user);
+        }
+    }
 
 
 
@@ -165,5 +245,21 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
      */
     public void setEntrenadores(ArrayList<Entrenador> entrenadores) {
         this.entrenadores = entrenadores;
+    }
+
+    /**
+     * Getter de la lista de rondas.
+     * @return ArrayList de Ronda con la lista de las rondas.
+     */
+    public ArrayList<Ronda> getRondas() {
+        return rondas;
+    }
+
+    /**
+     * Setter de la lista de rondas.
+     * @param rondas ArrayList de Ronda con la lista de las rondas.
+     */
+    public void setRondas(ArrayList<Ronda> rondas) {
+        this.rondas = rondas;
     }
 }

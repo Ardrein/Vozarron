@@ -13,6 +13,11 @@ import java.util.ArrayList;
 public class Entrenador implements Parcelable{
 
     /**
+     * Atributo para representar el id del entrenador.
+     */
+    private String id;
+
+    /**
      * Atributo que representa el nombre del entrenador.
      */
     private String nombre;
@@ -35,6 +40,7 @@ public class Entrenador implements Parcelable{
     /**
      * Atributo de ArrayList con la lista de participantes bajo este entrenador
      */
+
     private ArrayList<Participante> listaParticipantes;
 
 
@@ -58,11 +64,28 @@ public class Entrenador implements Parcelable{
      * @param in parcel del que se va a leer.
      */
     protected Entrenador(Parcel in) {
+        id= in.readString();
         nombre = in.readString();
         historia = in.readString();
         foto = in.readString();
         genero = in.readString();
+        listaParticipantes = in.createTypedArrayList(Participante.CREATOR);
 
+    }
+
+    /**
+     * Permite escribir un parcel. El orden en que se escribe es importante.
+     * @param parcel Parcel donde se va a escribir.
+     * @param i indica como deberia ser escrito el parcel.
+     */
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(nombre);
+        parcel.writeString(historia);
+        parcel.writeString(foto);
+        parcel.writeString(genero);
+        parcel.writeTypedList(listaParticipantes);
     }
 
     /**
@@ -80,6 +103,23 @@ public class Entrenador implements Parcelable{
             return new Entrenador[size];
         }
     };
+
+
+    /**
+     * Getter del id.
+     * @return String con el id del entrenador.
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Setter del id.
+     * @param id String con el id del entrenador.
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
 
     /**
      * Getter de nombre.
@@ -170,16 +210,5 @@ public class Entrenador implements Parcelable{
         return 0;
     }
 
-    /**
-     * Permite escribir un parcel. El orden en que se escribe es importante.
-     * @param parcel Parcel donde se va a escribir.
-     * @param i indica como deberia ser escrito el parcel.
-     */
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(nombre);
-        parcel.writeString(historia);
-        parcel.writeString(foto);
-        parcel.writeString(genero);
-    }
+
 }

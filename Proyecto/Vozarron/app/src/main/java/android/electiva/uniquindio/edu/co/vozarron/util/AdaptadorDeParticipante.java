@@ -92,6 +92,10 @@ public class AdaptadorDeParticipante extends RecyclerView.Adapter<AdaptadorDePar
 
 
 
+    /**
+     * Clase ParticipanteViewHolder en donde se hace uso del patron ViewHolder para almacenar todos los controles que son cargados
+     * por el metodo findViewById de cada uno de los items del control de seleccion.
+     */
     public static class ParticipanteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         /**
          *TextView que contendrá el nombre del participante.
@@ -114,6 +118,8 @@ public class AdaptadorDeParticipante extends RecyclerView.Adapter<AdaptadorDePar
          */
         public ParticipanteViewHolder(View itemView){
             super(itemView);
+            itemView.setOnClickListener(this);
+
             txtNombreParticipante = (TextView) itemView.findViewById(R.id.resumen_nombre_participante);
             txtRelacionUParticipante = (TextView) itemView.findViewById(R.id.resumen_relacion_u_participante);
             imgFotoParticipante = (ImageView) itemView.findViewById(R.id.resumen_foto_participante);

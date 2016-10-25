@@ -2,11 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeParticipantesFragment">
-
+    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeParticipantesRondaFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/lista_participantes"
+        android:id="@+id/lista_participantes_ronda"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 

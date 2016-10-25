@@ -1,6 +1,5 @@
 package android.electiva.uniquindio.edu.co.vozarron.util;
 
-
 import android.electiva.uniquindio.edu.co.vozarron.R;
 import android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment;
 import android.electiva.uniquindio.edu.co.vozarron.vo.Entrenador;
@@ -51,6 +50,13 @@ public class AdaptadorDeEntrenador extends RecyclerView.Adapter<AdaptadorDeEntre
          * @param pos posicion del entrenador seleccionado en la lista.
          */
         public void onClickPosition(int pos);
+
+        /**
+         * Metodo para asignarle una imagen a un imageView a partir del nombre de la imagen.
+         * @param imageView imageView que va a contener la imagen.
+         * @param nombreImagen nombre de la imagen a asignar.
+         */
+        public void setImage(ImageView imageView, String nombreImagen);
     }
 
 
@@ -126,8 +132,8 @@ public class AdaptadorDeEntrenador extends RecyclerView.Adapter<AdaptadorDeEntre
          */
         public void bindEntrenador(Entrenador entrenador){
             txtNombreEntrenador.setText(entrenador.getNombre());
+            listener.setImage(imgFotoEntrenador,entrenador.getFoto());
 
-            imgFotoEntrenador.setImageResource(R.drawable.cat);
 
         }
 

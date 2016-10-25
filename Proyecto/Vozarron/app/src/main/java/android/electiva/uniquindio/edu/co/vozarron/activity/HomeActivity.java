@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.electiva.uniquindio.edu.co.vozarron.R;
 import android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment;
 import android.electiva.uniquindio.edu.co.vozarron.vo.Entrenador;
+import android.electiva.uniquindio.edu.co.vozarron.vo.Ronda;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,9 +24,29 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
     private ArrayList<Entrenador> listaEntrenadores;
 
     /**
+     * ArrayList con la lista de rondas.
+     */
+    private ArrayList<Ronda> rondas;
+
+    /**
+     * Constante para identificar el objeto que es pasado a traves del intent a una nueva actividad.
+     */
+    final static String RONDA_POS = "ronda";
+
+    /**
      * Constante para identificar el objeto que es pasado a traves del intent a una nueva actividad.
      */
     final static String ENTRENADOR_POS = "entrenador";
+
+    /**
+     * Constante apra identificar la lista pasada a traves del intent.
+     */
+    final static String LISTA_ENTRENADORES = "listEntrenadores";
+
+    /**
+     * Constante apra identificar la lista pasada a traves del intent.
+     */
+    final static String LISTA_RONDAS = "listRondas";
 
 
     /**
@@ -60,12 +81,22 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
         this.listaEntrenadores = listaEntrenadores;
     }
 
+    /**
+     * Setter de la lista de rondas de la interface.
+     * @param rondas lista de rondas.
+     */
+    @Override
+    public void setRondas(ArrayList<Ronda> rondas) {
+        this.rondas = rondas;
+    }
 
     /**
      * Metodo para iniciar la actividad de Participantes.
      */
     public void irAListaParticipantes(View view){
         Intent intent = new Intent(this,ParticipantesActivity.class);
+        intent.putExtra(LISTA_ENTRENADORES,listaEntrenadores);
+        intent.putExtra(LISTA_RONDAS,rondas);
         startActivity(intent);
     }
 

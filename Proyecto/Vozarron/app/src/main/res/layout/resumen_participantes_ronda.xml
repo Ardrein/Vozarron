@@ -18,36 +18,23 @@
         android:padding="5dp"
         >
 
-        <ImageView
-            android:id="@+id/resumen_foto_participante"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+        <TextView
+            android:id="@+id/resumen_nombre_ronda"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="35dp"
+            android:layout_height="wrap_content"
             />
-
-        <TextView
-            android:id="@+id/resumen_nombre_participante"
+        <Button
+            android:id="@+id/btn_resumen_url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/ver_video"
 
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/resumen_foto_participante"
-
+            android:layout_alignParentRight="true"
             />
-
-        <TextView
-            android:id="@+id/resumen_relacion_u_participante"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/resumen_foto_participante"
-            android:layout_below="@+id/resumen_nombre_participante"
-
-            />
-
-
 
     </RelativeLayout>
 

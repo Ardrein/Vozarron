@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entrenadores">
+        <item>Rihanna</item>
+        <item>Adele</item>
+        <item>Jhonny Rivera</item>
+    </string-array>
+    
+</resources>
