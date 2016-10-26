@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="horizontal"
     android:weightSum="2"
-    tools:context="android.electiva.uniquindio.edu.co.vozarron.activity.HomeActivity">
+    android:background="@drawable/vozarro5"
+    tools:context="android.electiva.uq.edu.co.vozarron.activity.HomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,11 +27,12 @@
             android:text="@string/lista_entrenadores"
             android:textStyle="bold"
             android:padding="5dp"
+            android:textSize="@dimen/titulos"
             android:textAlignment="center"
             android:id="@+id/tituloListaEntrenadores" />
         <fragment
             android:id="@+id/fragmento_lista_entrenadores"
-            class="android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment"
+            class="android.electiva.uq.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -51,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/boton_lista_participantes"
             android:id="@+id/boton_ver_lista_participantes"
+            android:onClick="irAListaParticipantes"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             />

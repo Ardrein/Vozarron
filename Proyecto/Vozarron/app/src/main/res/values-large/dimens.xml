@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="titulos">25dp</dimen>
+    <dimen name="texto_lista">23dp</dimen>
+    <dimen name="texto_botones">20dp</dimen>
+    <dimen name="texto_normal">18dp</dimen>
+</resources>

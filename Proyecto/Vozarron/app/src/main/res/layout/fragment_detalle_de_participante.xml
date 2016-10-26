@@ -4,13 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeParticipanteFragment">
+    tools:context="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeParticipanteFragment">
 
     <TextView
         android:id="@+id/detalle_participante_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
+        android:textSize="@dimen/titulos"
+        android:gravity="center_horizontal|center_vertical"
+        android:background="@color/colorPrimary"
         />
     <ImageView
         android:id="@+id/detalle_participante_foto"
@@ -23,7 +26,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="4dp"
+        android:padding="10dp"
         android:layout_marginBottom="20dp"
         android:background="@color/colorPrimary"
         >

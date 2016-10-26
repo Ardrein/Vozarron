@@ -31,9 +31,9 @@
             android:id="@+id/resumen_nombre_participante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:textSize="@dimen/texto_lista"
             android:layout_marginBottom="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="7dp"
             android:layout_toRightOf="@+id/resumen_foto_participante"
 
             />
@@ -42,6 +42,7 @@
             android:id="@+id/resumen_relacion_u_participante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/texto_lista"
             android:layout_toRightOf="@+id/resumen_foto_participante"
             android:layout_below="@+id/resumen_nombre_participante"
 

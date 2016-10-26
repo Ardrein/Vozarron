@@ -5,14 +5,17 @@
     android:orientation="vertical"
     android:padding="5dp"
     android:weightSum="20"
-    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment">
+    tools:context="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center_horizontal|center_vertical"
         android:layout_weight="1"
         android:id="@+id/detalle_entrenador_nombre"
+        android:background="@color/colorPrimary"
+        android:textSize="@dimen/titulos"
+
         />
     <ImageView
         android:layout_width="100dp"
@@ -29,6 +32,8 @@
         android:id="@+id/detalle_entrenador_genero"
         android:gravity="center"
         android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="10dp"
         />
     <TextView
         android:layout_width="match_parent"
@@ -36,16 +41,24 @@
         android:text="@string/historial"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:textSize="@dimen/titulos"
+        android:layout_marginBottom="5dp"
         />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="11"
-        android:padding="2dp">
+        android:padding="2dp"
+        android:background="@color/colorPrimary"
+
+        >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/detalle_entrenador_historial"
+
+            android:padding="15dp"
             />
 
     </ScrollView>

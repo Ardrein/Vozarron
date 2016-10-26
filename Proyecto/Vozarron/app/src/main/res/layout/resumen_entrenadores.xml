@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-
+        android:textSize="@dimen/texto_lista"
         android:layout_toRightOf="@+id/resumen_foto_entrenador"
 
         />

@@ -2,7 +2,7 @@
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragmento_detalle_entrenador"
 
-    class="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment"
+    class="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    />

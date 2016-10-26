@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    android:weightSum="20"
+    tools:context="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_weight="1"
+        android:id="@+id/detalle_entrenador_nombre"
+        android:background="@color/colorPrimary"
+        android:textSize="@dimen/titulos"
+        android:layout_marginBottom="5dp"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="19"
+        android:weightSum="2"
+
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="15"
+            android:orientation="vertical"
+            android:padding="2dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription=""
+                android:layout_gravity="center"
+                android:layout_weight="14"
+                android:id="@+id/detalle_entrenador_foto"
+                android:padding="10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/detalle_entrenador_genero"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:padding="3dp"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="2dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/historial"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:textSize="@dimen/titulos"
+                android:layout_marginBottom="5dp"
+                />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="2dp"
+                android:background="@color/colorPrimary"
+
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/detalle_entrenador_historial"
+
+                    android:padding="15dp"
+                    />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

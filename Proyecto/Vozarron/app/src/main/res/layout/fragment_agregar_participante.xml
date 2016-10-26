@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.AgregarParticipanteFragment">
+    tools:context="android.electiva.uq.edu.co.vozarron.fragments.AgregarParticipanteFragment">
 
 
     <android.support.design.widget.TextInputLayout
@@ -32,10 +32,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinner_entrenadores"
-        >
+        android:layout_margin="4dp"
+        />
 
 
-    </Spinner>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_relacion_u"
+        android:layout_margin="4dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/seleccionar_foto"
+        android:layout_margin="4dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agregar"
+        android:layout_margin="4dp"
+        />
+
 
 
 
