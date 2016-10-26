@@ -14,8 +14,7 @@
 
     <style name="DialogoTitulo" parent="android:Theme.Holo.Dialog">
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:windowBackground">@drawable/vozarro5</item>
-        <item name="android:dropDownSpinnerStyle">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
 
     </style>
 

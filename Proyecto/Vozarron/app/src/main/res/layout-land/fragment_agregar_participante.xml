@@ -5,28 +5,42 @@
     android:orientation="vertical"
     tools:context="android.electiva.uq.edu.co.vozarron.fragments.AgregarParticipanteFragment">
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="5">
     <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
 
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/nombre_text"
-                />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        >
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/nombre_text"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:hint="@string/edad"
             />
     </android.support.design.widget.TextInputLayout>
+
+
+</LinearLayout>
+
 
     <Spinner
         android:layout_width="match_parent"
