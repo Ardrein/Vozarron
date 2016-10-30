@@ -108,15 +108,15 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
         rondas = new ArrayList<>();
 
 
-        Entrenador entrenador1 = new Entrenador("Einer","profesor de la clase de dispositivos moviles","Masculino","cat");
+        Entrenador entrenador1 = new Entrenador("Rihanna",getResources().getString(R.string.relleno),"Femenino","rihanna");
         entrenador1.setId("1");
         entrenador1.setListaParticipantes(new ArrayList<Participante>());
 
-        Entrenador entrenador2 = new Entrenador("David","estudiante de la clase de dispositivos moviles","Masculino","cato");
+        Entrenador entrenador2 = new Entrenador("Adele",getResources().getString(R.string.relleno),"Femenino","adele");
         entrenador2.setId("2");
         entrenador2.setListaParticipantes(new ArrayList<Participante>());
 
-        Entrenador entrenador3 = new Entrenador("Alejandro","estudiante de la clase de dispositivos moviles","Masculino","cat");
+        Entrenador entrenador3 = new Entrenador("Jhonny Rivera",getResources().getString(R.string.relleno),"Masculino","jhonny");
         entrenador3.setId("3");
         entrenador3.setListaParticipantes(new ArrayList<Participante>());
 

@@ -11,7 +11,7 @@
     android:orientation="vertical"
     android:weightSum="20"
 
-    tools:context="android.electiva.uq.edu.co.vozarron.activity.HomeActivity">
+    tools:context="android.electiva.uniquindio.edu.co.vozarron.activity.HomeActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/fragmento_lista_entrenadores"
 
-        class="android.electiva.uq.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment"
+        class="android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="17"

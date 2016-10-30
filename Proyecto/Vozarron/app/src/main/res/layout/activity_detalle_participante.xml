@@ -11,12 +11,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context="android.electiva.uq.edu.co.vozarron.activity.DetalleParticipanteActivity">
+    tools:context="android.electiva.uniquindio.edu.co.vozarron.activity.DetalleParticipanteActivity">
 
 <fragment
     android:id="@+id/fragmento_detalle_participante"
 
-    class="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeParticipanteFragment"
+    class="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeParticipanteFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"
@@ -62,7 +62,7 @@ android:layout_height="wrap_content"
 <fragment
     android:id="@+id/fragmento_lista_participantes_ronda"
 
-    class="android.electiva.uq.edu.co.vozarron.fragments.ListaDeParticipantesRondaFragment"
+    class="android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeParticipantesRondaFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 

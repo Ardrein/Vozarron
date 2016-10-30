@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="5dp"
     android:weightSum="20"
-    tools:context="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeParticipanteFragment">
+    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeParticipanteFragment">
 
     <TextView
         android:id="@+id/detalle_participante_nombre"
@@ -50,7 +50,7 @@
                 android:text="@string/edad"
                 android:layout_alignParentLeft="true"
                 android:layout_marginRight="2dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 />
             <TextView
                 android:id="@+id/detalle_participante_edad"
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text_edad"
                 android:layout_alignParentLeft="true"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="5dp"/>
             <TextView
                 android:id="@+id/text_nombre_entrenador"
                 android:layout_width="wrap_content"

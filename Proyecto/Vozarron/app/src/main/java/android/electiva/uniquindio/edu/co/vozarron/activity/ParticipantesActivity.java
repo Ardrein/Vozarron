@@ -139,6 +139,9 @@ public class ParticipantesActivity extends AppCompatActivity implements ListaDeP
     }
 
 
+    /**
+     * Metodo utilizado para mostrar el fragmento de dialogo.
+     */
     public void mostrarDialogoAgregarParticipante(String nombreClase){
         AgregarParticipanteFragment dialogoAgregarParticipante = new AgregarParticipanteFragment();
         dialogoAgregarParticipante.setStyle(dialogoAgregarParticipante.STYLE_NORMAL,R.style.DialogoTitulo);

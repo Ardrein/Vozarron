@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="30aa56bdbc1fe72115563bae07c5fd0f80d810bd">
+        sha1="d1b6972470ac8009278fcb47dd58f41d1055bacc">
         <dex dex="C:\Users\USER\AndroidStudioProjects\Vozarron\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5e773ca101161b10c04b794ad2d3b4ba55f72848\classes.dex" />
     </item>
     <item
@@ -97,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="6985cba573435ebd57b53a94c4f477ba74a07153">
+        sha1="e26830ffcffd260c4cef4f66581bb594eebbb8fd">
         <dex dex="C:\Users\USER\AndroidStudioProjects\Vozarron\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5a72110652c4fa0abafe7aaf46bb1230e0dabefe\classes.dex" />
     </item>
 

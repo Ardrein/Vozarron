@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="5dp"
     android:weightSum="20"
-    tools:context="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment">
+    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment">
 
 
     <TextView

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context="android.electiva.uq.edu.co.vozarron.fragments.DetalleDeParticipanteFragment">
+    tools:context="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeParticipanteFragment">
 
     <TextView
         android:id="@+id/detalle_participante_nombre"

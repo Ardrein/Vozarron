@@ -8,17 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.HomeActivity">
+        <activity android:name="android.electiva.uniquindio.edu.co.vozarron.activity.HomeActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DetalleEntrenadorActivity" />
-        <activity android:name=".activity.DetalleParticipanteActivity" />
-        <activity android:name=".activity.ParticipantesActivity" />
-        <activity android:name=".activity.VotacionesActivity"></activity>
+        <activity android:name="android.electiva.uniquindio.edu.co.vozarron.activity.DetalleEntrenadorActivity" />
+        <activity android:name="android.electiva.uniquindio.edu.co.vozarron.activity.DetalleParticipanteActivity" />
+        <activity android:name="android.electiva.uniquindio.edu.co.vozarron.activity.ParticipantesActivity" />
+        <activity android:name="android.electiva.uniquindio.edu.co.vozarron.activity.VotacionesActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 
