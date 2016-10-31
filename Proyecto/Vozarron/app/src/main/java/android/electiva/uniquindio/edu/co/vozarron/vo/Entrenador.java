@@ -33,9 +33,9 @@ public class Entrenador implements Parcelable{
     private String genero;
 
     /**
-     * Atributo que representa el nombre de la imagen asociada al entrenador.
+     * Atributo que representa la imagen asociada al entrenador.
      */
-    private String foto;
+    private int foto;
 
     /**
      * Atributo de ArrayList con la lista de participantes bajo este entrenador
@@ -49,9 +49,9 @@ public class Entrenador implements Parcelable{
      * @param nombre nombre del entrenador.
      * @param historia reseña corta del entrenador.
      * @param genero genero del entrenador Femenino o Masculino.
-     * @param foto nombre de la imagen asociada al entrenador.
+     * @param foto imagen asociada al entrenador.
      */
-    public Entrenador(String nombre, String historia, String genero, String foto) {
+    public Entrenador(String nombre, String historia, String genero, int foto) {
         this.nombre = nombre;
         this.historia = historia;
         this.genero = genero;
@@ -67,7 +67,7 @@ public class Entrenador implements Parcelable{
         id= in.readString();
         nombre = in.readString();
         historia = in.readString();
-        foto = in.readString();
+        foto = in.readInt();
         genero = in.readString();
         listaParticipantes = in.createTypedArrayList(Participante.CREATOR);
 
@@ -83,7 +83,7 @@ public class Entrenador implements Parcelable{
         parcel.writeString(id);
         parcel.writeString(nombre);
         parcel.writeString(historia);
-        parcel.writeString(foto);
+        parcel.writeInt(foto);
         parcel.writeString(genero);
         parcel.writeTypedList(listaParticipantes);
     }
@@ -171,17 +171,17 @@ public class Entrenador implements Parcelable{
 
     /**
      * Getter de foto.
-     * @return nombre de la imagen asociada al entrenador.
+     * @return imagen asociada al entrenador.
      */
-    public String getFoto() {
+    public int getFoto() {
         return foto;
     }
 
     /**
      * Setter de foto.
-     * @param foto nombre de la imagen asociada al entrenador.
+     * @param foto imagen asociada al entrenador.
      */
-    public void setFoto(String foto) {
+    public void setFoto(int foto) {
         this.foto = foto;
     }
 
@@ -208,6 +208,14 @@ public class Entrenador implements Parcelable{
     @Override
     public int describeContents() {
         return 0;
+    }
+
+    /**
+     * Metodo toString para utilizar la clase dentro de un spinner.
+     * @return String con el nNombre del entrenador.
+     */
+    public String toString(){
+        return nombre;
     }
 
 

@@ -17,7 +17,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -108,15 +107,15 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
         rondas = new ArrayList<>();
 
 
-        Entrenador entrenador1 = new Entrenador("Rihanna",getResources().getString(R.string.relleno),"Femenino","rihanna");
+        Entrenador entrenador1 = new Entrenador("Rihanna",getResources().getString(R.string.relleno),"Femenino",R.drawable.rihanna);
         entrenador1.setId("1");
         entrenador1.setListaParticipantes(new ArrayList<Participante>());
 
-        Entrenador entrenador2 = new Entrenador("Adele",getResources().getString(R.string.relleno),"Femenino","adele");
+        Entrenador entrenador2 = new Entrenador("Adele",getResources().getString(R.string.relleno),"Femenino",R.drawable.adele);
         entrenador2.setId("2");
         entrenador2.setListaParticipantes(new ArrayList<Participante>());
 
-        Entrenador entrenador3 = new Entrenador("Jhonny Rivera",getResources().getString(R.string.relleno),"Masculino","jhonny");
+        Entrenador entrenador3 = new Entrenador("Jhonny Rivera",getResources().getString(R.string.relleno),"Masculino",R.drawable.jhonny);
         entrenador3.setId("3");
         entrenador3.setListaParticipantes(new ArrayList<Participante>());
 
@@ -133,13 +132,18 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
         ArrayList<ParticipantesRonda> participantesRonda1 = new ArrayList<>();
         ArrayList<ParticipantesRonda> participantesRonda2 = new ArrayList<>();
 
-        Participante participante1 =  new Participante("Alejandro",24,"Estudiante","Cat");
+        Participante participante1 =  new Participante("Alejandro",24,"Estudiante",R.drawable.cat);
         participante1.setId("1");
         participante1.setIdEntrenador(entrenador1.getId());
 
-        Participante participante2 =  new Participante("David",24,"Estudiante","Cato");
+        Participante participante2 =  new Participante("David",24,"Estudiante",R.drawable.user);
         participante2.setId("2");
         participante2.setIdEntrenador(entrenador2.getId());
+
+        Participante participante3 =  new Participante("Jhon",24,"Administrativo",R.drawable.cat);
+        participante3.setId("3");
+        participante3.setIdEntrenador(entrenador3.getId());
+        participante3.setEstado(false);
 
         participantesRonda1.add(new ParticipantesRonda("http://www.youtube.com",participante1.getId(),ronda1.getId()));
         participantesRonda1.add(new ParticipantesRonda("http://www.google.com",participante1.getId(),ronda2.getId()));
@@ -149,8 +153,13 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
         participantesRonda2.add(new ParticipantesRonda("http://www.google.com",participante2.getId(),ronda2.getId()));
         participante2.setParticipantesRondas(participantesRonda2);
 
+        participante3.setParticipantesRondas(new ArrayList<ParticipantesRonda>());
+
+
+
         entrenador1.getListaParticipantes().add(participante1);
         entrenador2.getListaParticipantes().add(participante2);
+        entrenador3.getListaParticipantes().add(participante3);
 
 
 
@@ -206,29 +215,6 @@ public class ListaDeEntrenadoresFragment extends Fragment implements AdaptadorDe
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lista_de_entrenadores, container, false);
     }
-
-
-
-    /**
-     * Metodo para asignarle una imagen a un imageView a partir del nombre de la imagen.
-     * @param imageView imageView que va a contener la imagen.
-     * @param nombreImagen nombre de la imagen a asignar.
-     */
-    @Override
-    public void setImage(ImageView imageView, String nombreImagen) {
-        //obtener id del recurso
-        int id = getResources().getIdentifier(nombreImagen,"drawable",getContext().getPackageName());
-        //si es 0, no existe un recurso con ese nombre y se utiliza una imagen por defecto
-        if(id>0){
-            imageView.setImageResource(id);
-        }else{
-            imageView.setImageResource(R.drawable.user);
-        }
-    }
-
-
-
-
 
 
     /**

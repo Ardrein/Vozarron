@@ -32,8 +32,8 @@ public class AdaptadorDeParticipante extends RecyclerView.Adapter<AdaptadorDePar
 
     /**
      * Constructor de la clase.
-     * @param participantes lista de entrenadores.
-     * @param listaDeParticipantesFragment fragmento de la lista de entrenadores.
+     * @param participantes lista de participantes.
+     * @param listaDeParticipantesFragment fragmento de la lista de participantes.
      */
     public AdaptadorDeParticipante(ArrayList<Participante> participantes, ListaDeParticipantesFragment listaDeParticipantesFragment){
         this.participantes = participantes;
@@ -133,7 +133,7 @@ public class AdaptadorDeParticipante extends RecyclerView.Adapter<AdaptadorDePar
         public void bindParticipante(Participante participante){
             txtNombreParticipante.setText(participante.getNombre());
             txtRelacionUParticipante.setText(participante.getRelacionUniversidad());
-            imgFotoParticipante.setImageResource(R.drawable.cat);
+            imgFotoParticipante.setImageResource(participante.getFoto());
 
         }
 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:background="@drawable/vozarro5"
+    tools:context="android.electiva.uniquindio.edu.co.vozarron.activity.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="5dp"
+        android:gravity="center_horizontal"
+        android:weightSum="20"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:background="@color/colorPrimary"
+            android:text="@string/lista_entrenadores"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:textSize="@dimen/titulos"
+            android:textAlignment="center"
+            android:id="@+id/tituloListaEntrenadores" />
+        <fragment
+            android:id="@+id/fragmento_lista_entrenadores"
+            class="android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="14"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="@string/boton_lista_participantes"
+            android:id="@+id/boton_ver_lista_participantes"
+            android:onClick="irAListaParticipantes"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:onClick="irAVotaciones"
+            android:text="@string/boton_ir_votaciones"
+            android:id="@+id/boton_ir_votaciones"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:gravity="center_vertical"
+        >
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/fragmento_detalle_entrenador"
+
+            class="android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

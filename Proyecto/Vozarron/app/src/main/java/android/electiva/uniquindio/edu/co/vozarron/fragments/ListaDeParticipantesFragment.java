@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,12 +42,6 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
      * Instancia utilizada para comunicarse con la actividad de Participantes.
      */
     private OnParticipanteSeleccionadoListener listener;
-
-    /**
-     * ArrayList con la lista de participantes.
-     */
-    private ArrayList<Participante> participantes;
-
 
     /**
      * Constructor vacio.
@@ -77,10 +72,22 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
         void onParticipanteSeleccionado(int pos);
 
         /**
+         * Metodo para agregar un participante a la lista del listener.
+         * @param participante participante a agregar.
+         */
+        void addParticipante(Participante participante);
+
+        /**
          * Getter para la lista de participantes.
          * @return ArrayList de Participante.
          */
         ArrayList<Participante> getListaParticipantes();
+
+        /**
+         *  Getter para la lista de participantes.
+         * @param participantes ArrayList de Participante.
+         */
+        void setListaParticipantes(ArrayList<Participante> participantes);
     }
 
 
@@ -124,10 +131,9 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        setParticipantes(listener.getListaParticipantes());
 
         listadoDeParticipantes = (RecyclerView) getView().findViewById(R.id.lista_participantes);
-        adaptador =  new AdaptadorDeParticipante(participantes,this);
+        adaptador =  new AdaptadorDeParticipante(listener.getListaParticipantes(),this);
         listadoDeParticipantes.setAdapter(adaptador);
         listadoDeParticipantes.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
     }
@@ -146,7 +152,7 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
      * @return lista de participantes.
      */
     public ArrayList<Participante> getParticipantes() {
-        return participantes;
+        return listener.getListaParticipantes();
     }
 
     /**
@@ -154,7 +160,7 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
      * @param participantes lista de participantes.
      */
     public void setParticipantes(ArrayList<Participante> participantes) {
-        this.participantes = participantes;
+        listener.setListaParticipantes(participantes);
     }
 
     @Override
@@ -173,5 +179,16 @@ public class ListaDeParticipantesFragment extends Fragment implements AdaptadorD
         }
 
             return super.onOptionsItemSelected(item);
+    }
+
+
+    /**
+     * Metodo para agregar un participante a la lista de participantes.
+     * @param participante a agregar.
+     */
+    public void agregarParticipante(Participante participante) {
+        listener.addParticipante(participante);
+        adaptador.notifyItemInserted(listener.getListaParticipantes().size()-1);
+        Toast.makeText(getContext(),R.string.agregar_exitoso,Toast.LENGTH_SHORT).show();
     }
 }

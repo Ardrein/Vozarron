@@ -29,6 +29,7 @@
             android:padding="5dp"
             android:textSize="@dimen/titulos"
             android:textAlignment="center"
+            android:background="@color/colorPrimary"
             android:id="@+id/tituloListaEntrenadores" />
         <fragment
             android:id="@+id/fragmento_lista_entrenadores"
@@ -61,6 +62,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="irAVotaciones"
             android:text="@string/boton_ir_votaciones"
             android:id="@+id/boton_ir_votaciones"
             android:layout_gravity="center"

@@ -5,5 +5,5 @@
     <dimen name="titulos">18dp</dimen>
     <dimen name="texto_lista">18dp</dimen>
     <dimen name="texto_botones">16dp</dimen>
-    <dimen name="texto_normal">13dp</dimen>
+    <dimen name="texto_normal">15dp</dimen>
 </resources>

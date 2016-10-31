@@ -52,8 +52,9 @@ public class Ronda implements Parcelable{
      */
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(nombre);
         parcel.writeString(id);
+        parcel.writeString(nombre);
+
     }
 
     /**

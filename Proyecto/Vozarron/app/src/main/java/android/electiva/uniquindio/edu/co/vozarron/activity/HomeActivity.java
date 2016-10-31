@@ -2,8 +2,10 @@ package android.electiva.uniquindio.edu.co.vozarron.activity;
 
 import android.content.Intent;
 import android.electiva.uniquindio.edu.co.vozarron.R;
+import android.electiva.uniquindio.edu.co.vozarron.fragments.DetalleDeEntrenadorFragment;
 import android.electiva.uniquindio.edu.co.vozarron.fragments.ListaDeEntrenadoresFragment;
 import android.electiva.uniquindio.edu.co.vozarron.vo.Entrenador;
+import android.electiva.uniquindio.edu.co.vozarron.vo.Participante;
 import android.electiva.uniquindio.edu.co.vozarron.vo.Ronda;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -57,8 +59,36 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        boolean esFragmento = getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_entrenador)!= null;
+        if(esFragmento && !listaEntrenadores.isEmpty()){
+            Entrenador entrenador = listaEntrenadores.get(0);
+
+            mostrarEntrenador(entrenador);
+        }
+
+
     }
 
+    /**
+     * Metodo ejecutado cuando se inicia una actividad desde esta actividad y se espera obtener un resultado.
+     * @param requestCode codigo de peticion cuando se inicio otra actividad desde esta.
+     * @param resultCode codigo de estado de la transaccion.
+     * @param data datos obtenidos en la transaccion.
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 2){
+            if(resultCode == RESULT_OK){
+
+                Participante participante = (Participante) data.getParcelableExtra(VotacionesActivity.VOTACION_POS);
+                actualizarParticipante(participante);
+
+            }
+        }
+    }
 
     /**
      * Override del metodo de la interface para ejecutar el evento que permite mostrar los detalles de un entrenador.
@@ -67,9 +97,15 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
      */
     @Override
     public void onEntrenadorSeleccionado(int pos) {
-        Intent intent = new Intent(this,DetalleEntrenadorActivity.class);
-        intent.putExtra(ENTRENADOR_POS,listaEntrenadores.get(pos));
-        startActivity(intent);
+        boolean esFragmento = getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_entrenador)!= null;
+        if(esFragmento){
+            mostrarEntrenador(listaEntrenadores.get(pos));
+        }else{
+            Intent intent = new Intent(this,DetalleEntrenadorActivity.class);
+            intent.putExtra(ENTRENADOR_POS,listaEntrenadores.get(pos));
+            startActivity(intent);
+        }
+
     }
 
     /**
@@ -100,6 +136,16 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
         startActivity(intent);
     }
 
+
+    /**
+     * Metodo para iniciar la actividad de Votaciones.
+     */
+    public void irAVotaciones(View view){
+        Intent intent = new Intent(this,VotacionesActivity.class);
+        intent.putExtra(LISTA_ENTRENADORES,listaEntrenadores);
+        startActivityForResult(intent,2);
+    }
+
     /**
      * Getter de listaEntrenadores.
      * @return ArrayList con la lista de los Entrenadores.
@@ -114,6 +160,39 @@ public class HomeActivity extends AppCompatActivity implements ListaDeEntrenador
      */
     public void setListaEntrenadores(ArrayList<Entrenador> listaEntrenadores) {
         this.listaEntrenadores = listaEntrenadores;
+    }
+
+    /**
+     * Metodo para actualizar un participante de la lista de participantes.
+     * @param participante
+     */
+    public void actualizarParticipante(Participante participante){
+        String idPart = participante.getId();
+        String idEntrenador = participante.getIdEntrenador();
+        for(Entrenador entrenador: listaEntrenadores){
+            if(entrenador.getId().equals(idEntrenador)){
+
+                for(Participante partic: entrenador.getListaParticipantes()){
+                    if(partic.getId().equals(idPart)){
+
+                        partic.setVotos();
+                        break;
+                    }
+                }
+
+                break;
+            }
+        }
+    }
+
+    /**
+     * Metodo para enviar un entrenador del cual se quieren ver sus detalles al fragmento de detalle de entrenador.
+     * @param entrenador entrenador a mostrar los detalles.
+     */
+    public void mostrarEntrenador(Entrenador entrenador){
+        ((DetalleDeEntrenadorFragment)
+                getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_entrenador))
+                .mostrarEntrenador(entrenador);
     }
 
 }

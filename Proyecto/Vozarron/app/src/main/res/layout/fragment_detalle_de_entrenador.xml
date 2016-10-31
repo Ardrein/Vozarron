@@ -9,17 +9,17 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:gravity="center_horizontal|center_vertical"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:id="@+id/detalle_entrenador_nombre"
         android:background="@color/colorPrimary"
         android:textSize="@dimen/titulos"
 
         />
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:contentDescription=""
         android:layout_gravity="center"
         android:layout_weight="6"
@@ -37,9 +37,9 @@
         />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/historial"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:textSize="@dimen/titulos"
@@ -47,8 +47,8 @@
         />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="11"
+        android:layout_height="0dp"
+        android:layout_weight="9"
         android:padding="2dp"
         android:background="@color/colorPrimary"
 

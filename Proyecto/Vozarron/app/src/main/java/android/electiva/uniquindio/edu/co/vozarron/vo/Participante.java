@@ -40,9 +40,9 @@ public class Participante implements Parcelable{
     private String relacionUniversidad;
 
     /**
-     * Atributo que representa el nombre de la imagen asociada al participante.
+     * Atributo que representa la imagen asociada al participante.
      */
-    private String foto;
+    private int foto;
 
     /**
      * Atributo que representa el entrenador de este participante.
@@ -59,9 +59,9 @@ public class Participante implements Parcelable{
      * @param nombre nombre del participante.
      * @param edad edad del participante.
      * @param relacionUniversidad relación del participante con la universidad: Estudiante, Administrativo, Docente, Otro.
-     * @param foto string que representa el nombre de la imagen asociada al participante.
+     * @param foto int que representa la imagen asociada al participante.
      */
-    public Participante(String nombre, int edad, String relacionUniversidad, String foto){
+    public Participante(String nombre, int edad, String relacionUniversidad, int foto){
         this.nombre = nombre;
         this.edad = edad;
         this.relacionUniversidad = relacionUniversidad;
@@ -82,7 +82,7 @@ public class Participante implements Parcelable{
         edad = in.readInt();
         estado = in.readByte() != 0;
         relacionUniversidad = in.readString();
-        foto = in.readString();
+        foto = in.readInt();
         idEntrenador = in.readString();
         participantesRondas = in.createTypedArrayList(ParticipantesRonda.CREATOR);
     }
@@ -99,7 +99,7 @@ public class Participante implements Parcelable{
         parcel.writeInt(edad);
         parcel.writeByte((byte) (estado ? 1 : 0));
         parcel.writeString(relacionUniversidad);
-        parcel.writeString(foto);
+        parcel.writeInt(foto);
         parcel.writeString(idEntrenador);
         parcel.writeTypedList(participantesRondas);
     }
@@ -211,17 +211,17 @@ public class Participante implements Parcelable{
 
     /**
      * Getter de foto.
-     * @return nombre de la imagen asociada al participante.
+     * @return la imagen asociada al participante.
      */
-    public String getFoto() {
+    public int getFoto() {
         return foto;
     }
 
     /**
      * Setter de foto.
-     * @param foto  nombre de la imagen asociada al participante.
+     * @param foto  la imagen asociada al participante.
      */
-    public void setFoto(String foto) {
+    public void setFoto(int foto) {
         this.foto = foto;
     }
 
@@ -264,6 +264,31 @@ public class Participante implements Parcelable{
     @Override
     public int describeContents() {
         return 0;
+    }
+
+    /**
+     * Metodo para obtener la cantidad de votos de este participante en la ronda actual.
+     * @return
+     */
+    public int getVotos(){
+        int votos = 0;
+        if(!participantesRondas.isEmpty()){
+            votos = participantesRondas.get(participantesRondas.size()-1).getNumVotos();
+        }
+
+
+        return votos;
+    }
+
+    /**
+     * Metodo para votar por el participante, aumentanto el numero de votos de la ronda actual en 1.
+     */
+    public void setVotos(){
+        if(!participantesRondas.isEmpty()) {
+            ParticipantesRonda partRonda = participantesRondas.get(participantesRondas.size() - 1);
+            int votos = 1+partRonda.getNumVotos();
+                    partRonda.setNumVotos(votos);
+        }
     }
 
 

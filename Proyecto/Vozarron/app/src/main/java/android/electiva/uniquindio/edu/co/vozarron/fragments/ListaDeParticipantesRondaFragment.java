@@ -51,7 +51,7 @@ public class ListaDeParticipantesRondaFragment extends Fragment implements Adapt
     /**
      * Instancia utilizada para comunicarse con la actividad de detalle participante.
      */
-    private OnParticipantesRondaSelecListener listener;
+    private OnPartRSelecListener listener;
 
     /**
      * Constructor vacío.
@@ -63,7 +63,7 @@ public class ListaDeParticipantesRondaFragment extends Fragment implements Adapt
     /**
      * Interface a ser utilizada para la comunicación con la actividad de detalle participante.
      */
-    public interface OnParticipantesRondaSelecListener {
+    public interface OnPartRSelecListener {
 
         /**
          * Metodo para obtener una ronda segun su id.
@@ -124,11 +124,12 @@ public class ListaDeParticipantesRondaFragment extends Fragment implements Adapt
         Activity activity;
         if (context instanceof Activity){
             activity = (Activity) context;
+
             try {
-                listener = (OnParticipantesRondaSelecListener) activity;
+                listener = (OnPartRSelecListener) activity;
             } catch (ClassCastException e) {
                 throw new ClassCastException(activity.toString() +
-                        " debe implementar la interfaz OnParticipantesRondaSelecListener");
+                        " debe implementar la interfaz OnPartRSelecListener");
             }
         }
     }
@@ -188,5 +189,11 @@ public class ListaDeParticipantesRondaFragment extends Fragment implements Adapt
     @Override
     public void setParticipantesRonda(ParticipantesRonda participantesRonda) {
         this.participantesRonda = participantesRonda;
+    }
+
+
+    public void notificarCambioLista(){
+        adaptador.setListaParticipantesRonda(listaParticipantesRonda);
+        adaptador.notifyDataSetChanged();
     }
 }

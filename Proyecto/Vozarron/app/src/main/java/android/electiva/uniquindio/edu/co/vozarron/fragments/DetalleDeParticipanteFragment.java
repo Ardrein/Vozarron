@@ -86,14 +86,7 @@ public class DetalleDeParticipanteFragment extends Fragment {
 
         imgFoto = (ImageView) getView().findViewById(R.id.detalle_participante_foto);
 
-        int id = getResources().getIdentifier(participante.getFoto(),"drawable",getContext().getPackageName());
-
-        //si es 0, no existe un recurso con ese nombre y se utiliza una imagen por defecto
-        if(id>0){
-            imgFoto.setImageResource(id);
-        }else{
-            imgFoto.setImageResource(R.drawable.user);
-        }
+        imgFoto.setImageResource(participante.getFoto());
 
 
 

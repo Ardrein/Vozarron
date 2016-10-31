@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/lista_entrenadores"
+        android:background="@color/colorPrimary"
         android:textStyle="bold"
         android:padding="2dp"
         android:textAlignment="center"
@@ -49,6 +50,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="irAVotaciones"
+
         android:text="@string/boton_ir_votaciones"
         />
 </LinearLayout>

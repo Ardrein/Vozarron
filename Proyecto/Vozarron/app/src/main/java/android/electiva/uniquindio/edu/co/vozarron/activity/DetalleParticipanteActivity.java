@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Actividad utilizada para mostrar los detalles de un Participante.
  */
-public class DetalleParticipanteActivity extends AppCompatActivity implements ListaDeParticipantesRondaFragment.OnParticipantesRondaSelecListener {
+public class DetalleParticipanteActivity extends AppCompatActivity implements ListaDeParticipantesRondaFragment.OnPartRSelecListener {
 
     /**
      * ArrayList con la lista de rondas.

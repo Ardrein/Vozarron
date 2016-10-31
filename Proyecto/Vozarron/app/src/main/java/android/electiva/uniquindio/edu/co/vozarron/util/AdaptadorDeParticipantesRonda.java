@@ -78,6 +78,7 @@ public class AdaptadorDeParticipantesRonda extends RecyclerView.Adapter<Adaptado
          */
         void setParticipantesRonda(ParticipantesRonda participantesRonda);
 
+
     }
 
 
@@ -149,6 +150,7 @@ public class AdaptadorDeParticipantesRonda extends RecyclerView.Adapter<Adaptado
          * @param participantesRonda instancia de la clase ParticipantesRonda de la cual se obtienen los datos.
          */
         public void bindParticipantesRonda(ParticipantesRonda participantesRonda){
+
             txtNombreRonda.setText(listener.findRondaById(participantesRonda.getIdRonda()).getNombre());
             btnUrlVideo.setOnClickListener(listener.getOnClickListener());
             listener.setParticipantesRonda(participantesRonda);

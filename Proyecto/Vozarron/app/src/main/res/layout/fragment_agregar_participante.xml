@@ -11,6 +11,7 @@
         android:layout_height="wrap_content">
 
             <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_agregar_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nombre_text"
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/txt_agregar_edad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/edad"
@@ -49,6 +51,7 @@
         />
 
     <Button
+        android:id="@+id/btn_agregar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/agregar"
